@@ -154,11 +154,11 @@ if __name__ == '__main__':
     checkpoint_callback = ModelCheckpoint(filepath=os.path.join(f'ckpts/{hparams.exp_name}',
                                                                 '{epoch:d}'),
                                           verbose=0,
-                                          save_freq='epoch',
                                           save_best_only=False,
                                           save_weights_only=False,
                                           monitor='val/loss',
                                           mode='auto',
+                                          save_freq='epoch',
                                           )
 
     logger = TestTubeLogger(
