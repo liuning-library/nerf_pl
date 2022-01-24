@@ -153,12 +153,14 @@ if __name__ == '__main__':
     system = NeRFSystem(hparams)
     checkpoint_callback = ModelCheckpoint(filepath=os.path.join(f'ckpts/{hparams.exp_name}',
                                                                 '{epoch:d}'),
-                                          verbose=0,
-                                          save_best_only=False,
-                                          save_weights_only=False,
-                                          monitor='val/loss',
-                                          mode='auto',
-                                          save_freq='epoch',
+                                            monitor="val_loss",
+                                            verbose=0,
+                                            save_best_only=False,
+                                            save_weights_only=False,
+                                            mode="auto",
+                                            save_freq="epoch",
+                                            options=None,
+                                            **kwargs,
                                           )
 
     logger = TestTubeLogger(
